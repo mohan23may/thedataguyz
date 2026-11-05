@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E1730">
+<title>Noviq — AI data onboarding, migration and our delivery IP</title>
+<meta name="description" content="Noviq is our metadata-driven onboarding, migration and AI-ready knowledge foundation IP. Platform-neutral accelerators for Snowflake, Databricks, Fabric and BigQuery.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Data Guyz">
+<meta property="og:title" content="Noviq | Data onboarding, migration and AI-ready knowledge foundation IP">
+<meta property="og:description" content="Noviq is our metadata-driven onboarding, migration and AI-ready knowledge foundation IP. Platform-neutral accelerators for Snowflake, Databricks, Fabric and BigQuery.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+body { margin: 0; background: #F6F8FC; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #141B2E; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #1A47B8; }
+a:hover { color: #123089; }
+h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif; text-wrap: pretty; }
+p { text-wrap: pretty; }
+table { border-collapse: collapse; }
+</style>
+</head>
+<body>
+<div style="width: 100%; max-width: 100%; overflow-x: hidden">
+
+  <!-- HEADER -->
+  <header style="background: #0E1730; color: #FFFFFF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px">
+      <a href="index.html" style="display: flex; align-items: center; gap: 11px; text-decoration: none">
+        <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-label="The Data Guyz">
+          <path d="M23 4 V30" stroke="#2563EB" stroke-width="3.2" stroke-linecap="round" fill="none"></path>
+          <path d="M23 13.5 A8 8 0 1 0 23 26.5" stroke="#2563EB" stroke-width="3.2" stroke-linecap="round" fill="none"></path>
+          <path d="M27.8 8 V30" stroke="#2FC4D8" stroke-width="2.3" stroke-linecap="round" fill="none"></path>
+          <path d="M31.4 12 V30" stroke="#2FC4D8" stroke-width="1.7" stroke-linecap="round" fill="none" opacity="0.6"></path>
+        </svg>
+        <span style="display: flex; flex-direction: column; line-height: 1">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: #FFFFFF">The Data Guyz</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 9px; letter-spacing: 0.2em; color: #5FD4E4; margin-top: 5px">YOUR DATA EXPERTS</span>
+        </span>
+      </a>
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 21px; margin-left: auto; align-items: center">
+        <a href="Services.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Capabilities</a>
+        <a href="Modernisation.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Modernisation</a>
+        <a href="Agents.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">AI agents</a>
+        <a href="Noviq.html" style="font-size: 14.5px; font-weight: 600; color: #FFFFFF; text-decoration: none; border-bottom: 2px solid #2563EB; padding-bottom: 3px">Noviq</a>
+        <a href="Offers.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Offers</a>
+        <a href="Industries.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Industries</a>
+        <a href="CaseStudies.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Case studies</a>
+        <a href="About.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">About</a>
+      </nav>
+      <a href="About.html#contact" style="display: inline-flex; align-items: center; gap: 9px; min-height: 46px; padding: 0 22px; background: #1D4ED8; color: #FFFFFF; font-size: 14.5px; font-weight: 600; text-decoration: none; border-radius: 999px">Talk to us
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="background: #0E1730; color: #FFFFFF; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px; padding: 20px 32px 88px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <nav aria-label="Breadcrumb" style="padding: 14px 0 32px; font-size: 13.5px; color: #8E99B6">
+        <a href="index.html" style="color: #8E99B6; text-decoration: none">Home</a> <span aria-hidden="true">/</span> <span>Noviq</span>
+      </nav>
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #5FD4E4; background: #16213E; border: 1px solid #2A3A63; padding: 9px 16px; border-radius: 999px">
+        <span style="width: 7px; height: 7px; border-radius: 999px; background: #2FC4D8; display: inline-block" aria-hidden="true"></span>
+        AI-BASED DATA ONBOARDING &amp; MIGRATION &middot; BY THE DATA GUYZ
+      </p>
+      <h1 style="margin: 24px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(36px, 4.6vw, 62px); line-height: 1.03; letter-spacing: -0.035em; max-width: 18ch">Stop paying engineers to rebuild from scratch.</h1>
+      <p style="margin: 24px 0 0; font-size: 19px; line-height: 1.6; color: #BCC5DA; max-width: 70ch"><strong style="color: #FFFFFF">Noviq</strong> brings new data in. <strong style="color: #FFFFFF">Noviq Shift</strong> moves what you already have. AI does the discovery and the drafting; your people stay in control. No new platform licence, and every artefact lands in your own repositories.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px">
+        <a href="About.html#contact" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; background: #1D4ED8; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 999px">Book a 45-minute Noviq demo
+          <svg width="15" height="15" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a href="Offers.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; border: 1px solid #3A4A75; border-radius: 999px">See the proof-of-value offer</a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 16px; margin-top: 52px">
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 8px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em; color: #5FD4E4">80%</p>
+          <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: #BCC5DA">faster onboarding of a new source</p>
+        </div>
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 8px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em; color: #5FD4E4">0</p>
+          <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: #BCC5DA">artefacts generated without human review</p>
+        </div>
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 8px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em; color: #5FD4E4">100%</p>
+          <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: #BCC5DA">of objects converted on the Coal LSL migration</p>
+        </div>
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 8px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -0.03em; color: #5FD4E4">5</p>
+          <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.55; color: #BCC5DA">platforms supported, no new licence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TWO PRODUCTS -->
+  <section style="background: #FFFFFF; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+        TWO PRODUCTS, ONE OPERATING MODEL
+      </p>
+      <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(29px, 3.5vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 22ch">AI recommends. People validate. Nothing ships unapproved.</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+
+        <article style="background: #0E1730; border-radius: 8px; padding: 36px 32px">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <h3 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.025em; color: #FFFFFF">Noviq</h3>
+            <span style="font-size: 13.5px; color: #8E99B6">AI-based data onboarding</span>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 15.5px; line-height: 1.65; color: #BCC5DA"><strong style="color: #FFFFFF">For teams onboarding new sources.</strong> A retail analytics team must onboard a dozen new supplier and e-commerce feeds each quarter into Fabric to support demand forecasting. Each feed takes two to three weeks of manual profiling, mapping and governance review, so the forecasting model keeps slipping.</p>
+          <div style="margin-top: 26px; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8E99B6; background: #16213E; padding: 8px 10px; border-radius: 6px; text-align: center">BEFORE</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #BCC5DA">Engineers hand-profile each file, guess data types and keys, write mapping docs, then rework after governance finds PII.</p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8E99B6; background: #16213E; padding: 8px 10px; border-radius: 6px; text-align: center">WITH NOVIQ</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #BCC5DA">AI discovers schemas, proposes types, partitions and candidate keys, and drafts the mapping and technical docs; the analyst validates in a review session, then pipeline artefacts are generated.</p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #FFFFFF; background: #1D4ED8; padding: 8px 10px; border-radius: 6px; text-align: center">OUTCOME</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #FFFFFF; font-weight: 500">Feeds land in days, governance is applied up front, and the backlog clears &mdash; onboarding effort down by up to 80%.</p>
+            </div>
+          </div>
+        </article>
+
+        <article style="background: #0E1730; border-radius: 8px; padding: 36px 32px">
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+            <h3 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.025em; color: #FFFFFF">Noviq Shift</h3>
+            <span style="font-size: 13.5px; color: #8E99B6">AI-based data migration</span>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 15.5px; line-height: 1.65; color: #BCC5DA"><strong style="color: #FFFFFF">For teams moving an estate.</strong> A platform team must move a SQL Server estate &mdash; hundreds of tables, views, stored procedures and functions &mdash; to a cloud database before a licence renewal, with no in-house conversion skills and an auditor asking for proof that logic was not altered.</p>
+          <div style="margin-top: 26px; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8E99B6; background: #16213E; padding: 8px 10px; border-radius: 6px; text-align: center">BEFORE</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #BCC5DA">Objects converted by hand, dependencies discovered late, and reconciliation is a spreadsheet exercise that slips the cutover.</p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #8E99B6; background: #16213E; padding: 8px 10px; border-radius: 6px; text-align: center">WITH SHIFT</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #BCC5DA">The estate is analysed for objects and dependencies, SQL / ETL logic is converted with compatibility gaps flagged for engineer review, and reconciliation reports are produced at every step.</p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap">
+              <span style="flex: 0 0 108px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #FFFFFF; background: #1D4ED8; padding: 8px 10px; border-radius: 6px; text-align: center">OUTCOME</span>
+              <p style="margin: 0; flex: 1 1 200px; font-size: 14.8px; line-height: 1.65; color: #FFFFFF; font-weight: 500">Coal LSL pattern: 100% of objects converted, validated and deployed in three months with audit-ready reconciliation.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- operating model -->
+      <div style="margin-top: 18px; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 30px 28px">
+        <h3 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #6B7391">THE OPERATING MODEL</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(165px, 100%), 1fr)); gap: 12px; margin-top: 20px">
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 6px; padding: 18px 16px; text-align: center; font-size: 14.5px; font-weight: 500; color: #3B4360">Raw data</div>
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 6px; padding: 18px 16px; text-align: center; font-size: 14.5px; font-weight: 500; color: #3B4360">AI discovery</div>
+          <div style="background: #1D4ED8; border: 1px solid #1D4ED8; border-radius: 6px; padding: 18px 16px; text-align: center; font-size: 14.5px; font-weight: 600; color: #FFFFFF">Human validation</div>
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 6px; padding: 18px 16px; text-align: center; font-size: 14.5px; font-weight: 500; color: #3B4360">Artefacts generated</div>
+          <div style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 6px; padding: 18px 16px; text-align: center; font-size: 14.5px; font-weight: 500; color: #3B4360">Governed outcome</div>
+        </div>
+        <p style="margin: 18px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Nothing is generated until a named person approves it. Artefacts are committed to your repositories, in your stack, under your platform licences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TEAMS BRING IN NOVIQ -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 11.5px; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+        WHY TEAMS BRING IT IN
+      </p>
+      <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(29px, 3.5vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 26ch">Business needs, automation, innovation and platform neutrality.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-top: 4px solid #1D4ED8; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column">
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.25">Business needs</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: #6B7391">Trusted data for every BU, faster</p>
+          <h4 style="margin: 22px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #8E99B6">WHAT TEAMS NEED</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Onboard new sources in days, not weeks</li>
+            <li>Prove reconciliation to auditors and regulators</li>
+            <li>Free senior engineers for higher-value work</li>
+          </ul>
+          <h4 style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #1D4ED8">HOW NOVIQ DELIVERS</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Onboarding blueprint, mapping and documentation generated</li>
+            <li>Audit-ready evidence pack produced per load</li>
+          </ul>
+          <div style="margin: auto 0 0; padding-top: 22px; display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em; color: #1D4ED8">80%</span>
+            <span style="font-size: 13px; line-height: 1.4; color: #6B7391">faster onboarding</span>
+          </div>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-top: 4px solid #1D4ED8; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column">
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.25">Automation</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: #6B7391">Remove repetitive engineering, keep accountability</p>
+          <h4 style="margin: 22px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #8E99B6">WHAT TEAMS NEED</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Schema discovery, profiling and mapping are manual and inconsistent</li>
+            <li>SQL and ETL conversion is hand-written and error-prone</li>
+            <li>Teams need AI with a human sign-off</li>
+          </ul>
+          <h4 style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #1D4ED8">HOW NOVIQ DELIVERS</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>AI discovery with mandatory human validation and override</li>
+            <li>Artefacts generated only after approval</li>
+          </ul>
+          <div style="margin: auto 0 0; padding-top: 22px; display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em; color: #1D4ED8">0</span>
+            <span style="font-size: 13px; line-height: 1.4; color: #6B7391">code generated without review</span>
+          </div>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-top: 4px solid #1D4ED8; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column">
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.25">Innovation</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: #6B7391">Reuse delivery IP instead of rebuilding</p>
+          <h4 style="margin: 22px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #8E99B6">WHAT TEAMS NEED</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Every project re-creates the same frameworks</li>
+            <li>Knowledge sits in people, not products</li>
+            <li>AI capability must be practical, not experimental</li>
+          </ul>
+          <h4 style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #1D4ED8">HOW NOVIQ DELIVERS</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Client engagements productised into Noviq and Noviq Shift</li>
+            <li>LLM-powered metadata generation (Anthropic Claude partner)</li>
+          </ul>
+          <div style="margin: auto 0 0; padding-top: 22px; display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em; color: #1D4ED8">4</span>
+            <span style="font-size: 13px; line-height: 1.4; color: #6B7391">engagements behind the product</span>
+          </div>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-top: 4px solid #1D4ED8; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column">
+          <h3 style="margin: 0; font-size: 20px; line-height: 1.25">Platform</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; line-height: 1.5; color: #6B7391">Neutral, owned, no lock-in</p>
+          <h4 style="margin: 22px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #8E99B6">WHAT TEAMS NEED</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Estates span Fabric, Snowflake, Databricks, AWS and GCP</li>
+            <li>Vendor tools lock the destination to one platform</li>
+            <li>Licence sprawl and catalogue overhead</li>
+          </ul>
+          <h4 style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #1D4ED8">HOW NOVIQ DELIVERS</h4>
+          <ul style="margin: 10px 0 0; padding-left: 17px; font-size: 14.2px; line-height: 1.7; color: #4C5470">
+            <li>Runs inside the client's existing stack; outputs committed to client repositories</li>
+            <li>No new platform licence or subscription</li>
+          </ul>
+          <div style="margin: auto 0 0; padding-top: 22px; display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.03em; color: #1D4ED8">5</span>
+            <span style="font-size: 13px; line-height: 1.4; color: #6B7391">platforms supported</span>
+          </div>
+        </article>
+      </div>
+      <p style="margin: 24px 0 0; font-size: 15.5px; line-height: 1.7; color: #3B4360; background: #0E1730; border-radius: 8px; padding: 24px 26px"><strong style="color: #FFFFFF">Partner so-what:</strong> <span style="color: #BCC5DA">a partner can run Noviq inside any client stack, keep the platform relationship it already has, and hand its run team the evidence pack &mdash; automation and innovation without a new vendor agenda.</span></p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 36px 56px">
+      <div>
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+          <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+          WHAT YOU GET
+        </p>
+        <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(27px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.03em; max-width: 18ch">Artefacts, not a black box.</h2>
+        <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #4C5470">Noviq is delivery IP we run inside your environment, not a SaaS product you rent. Everything it produces is yours on day one &mdash; readable, reviewable and committed to your repositories.</p>
+      </div>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px">
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">1</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">Source profile and proposed schema, with types, partitions and candidate keys</span></li>
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">2</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">Source-to-target mapping and technical documentation</span></li>
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">3</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">Object and dependency inventory, with compatibility gaps flagged for review</span></li>
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">4</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">Generated pipeline and conversion code, committed to your repositories</span></li>
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">5</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">Reconciliation reports and an audit-ready evidence pack per load or wave</span></li>
+        <li style="display: flex; gap: 16px; align-items: flex-start"><span style="flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: #EAF1FE; color: #1D4ED8; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">6</span><span style="font-size: 15.5px; line-height: 1.65; color: #3B4360">A record of every AI proposal and who approved it</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FRAMEWORKS -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 11.5px; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+        THE FRAMEWORKS ALONGSIDE
+      </p>
+      <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(29px, 3.5vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 24ch">What keeps the data trustworthy once Noviq has landed it.</h2>
+      <p style="margin: 18px 0 0; font-size: 18px; line-height: 1.65; color: #4C5470; max-width: 72ch">Noviq gets data in and across. These four frameworks &mdash; the rest of our delivery IP &mdash; keep it defensible afterwards. Each came out of a delivered engagement and is handed over as code you own.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 32px 28px">
+          <h3 style="margin: 0; font-size: 21px; line-height: 1.25">DQ &amp; Load Audit Framework</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">A configurable, SQL-native data-quality framework with real-time monitoring, plus a load-audit layer comparing source and target record counts across bronze, silver and gold.</p>
+          <ul style="margin: 18px 0 0; padding-left: 17px; font-size: 14.5px; line-height: 1.75; color: #4C5470">
+            <li>Rules in SQL your team reads, owns and extends</li>
+            <li>No additional licence, no proprietary rule language</li>
+            <li>Hundreds of rules inside a single run window</li>
+          </ul>
+          <p style="margin: 20px 0 0; font-size: 13.5px; font-weight: 600; color: #1D4ED8; background: #EAF1FE; padding: 12px 14px; border-radius: 8px">MetLife &mdash; 99.9% integrity and auditability</p>
+        </article>
+
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 32px 28px">
+          <h3 style="margin: 0; font-size: 21px; line-height: 1.25">ADDF &mdash; disposal &amp; de-identification</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">A scheduled compliance trigger routes end-of-life data to automated purge or de-identification, with Power BI tracking of every disposed and masked record.</p>
+          <ul style="margin: 18px 0 0; padding-left: 17px; font-size: 14.5px; line-height: 1.75; color: #4C5470">
+            <li>Compliance becomes a scheduled job, not an annual scramble</li>
+            <li>Primary and cascading tables handled together</li>
+            <li>Analytics value kept without keeping the PII</li>
+          </ul>
+          <p style="margin: 20px 0 0; font-size: 13.5px; font-weight: 600; color: #1D4ED8; background: #EAF1FE; padding: 12px 14px; border-radius: 8px">The Smith Family &mdash; compliant by default</p>
+        </article>
+
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 32px 28px">
+          <h3 style="margin: 0; font-size: 21px; line-height: 1.25">AI-Ready Knowledge Foundation</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">Parallel ingestion pipelines &mdash; Zendesk via ADLS and an external stage, SharePoint via Snowflake Openflow &mdash; feeding one governed Cortex Search index.</p>
+          <ul style="margin: 18px 0 0; padding-left: 17px; font-size: 14.5px; line-height: 1.75; color: #4C5470">
+            <li>Native platform ingestion &mdash; no custom integration layer</li>
+            <li>Permissions respected at retrieval, not bolted on after</li>
+            <li>LLM-generated metadata on onboarded tables</li>
+          </ul>
+          <p style="margin: 20px 0 0; font-size: 13.5px; font-weight: 600; color: #1D4ED8; background: #EAF1FE; padding: 12px 14px; border-radius: 8px">The Smith Family &mdash; one search across two systems</p>
+        </article>
+
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 32px 28px">
+          <h3 style="margin: 0; font-size: 21px; line-height: 1.25">Customer Data Activation Layer</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">The warehouse-side half of a CDP or engagement programme: identity resolution, consent and suppression, and audience pipelines into platforms such as Braze.</p>
+          <ul style="margin: 18px 0 0; padding-left: 17px; font-size: 14.5px; line-height: 1.75; color: #4C5470">
+            <li>Audience definitions live in the warehouse, not a marketing tool</li>
+            <li>Every send reconcilable back to the record that triggered it</li>
+            <li>Consent applied before activation, not after</li>
+          </ul>
+          <p style="margin: 20px 0 0; font-size: 13.5px; font-weight: 600; color: #4C5470; background: #EDF1F8; padding: 12px 14px; border-radius: 8px">Available as a fixed-scope blueprint</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVIQ USE CASES -->
+  <section style="background: #FFFFFF; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 540px; min-width: 0">
+          <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 11.5px; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+            <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+            WHERE IT GETS USED
+          </p>
+          <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(29px, 3.5vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 22ch">Eight jobs teams hand to Noviq.</h2>
+        </div>
+        <a href="UseCases.html" style="display: inline-flex; align-items: center; gap: 9px; min-height: 50px; padding: 0 24px; border: 1px solid #CBD5E6; border-radius: 999px; color: #141B2E; font-size: 15px; font-weight: 600; text-decoration: none">Full use-case library
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#141B2E" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq Shift</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Legacy warehouse to cloud conversion</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Oracle, SQL Server or Teradata moved object by object, with every table, view, stored procedure and function validated against source.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Coal LSL — 100% of objects in 3 months</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq Shift</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Hadoop / Hive job modernisation</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Getting off an end-of-support cluster without rewriting every job by hand; Hive and MapReduce logic converted with gaps flagged.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Conversion assurance pattern</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq Shift</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Legacy ETL re-engineering</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Hundreds of hand-built Informatica, SSIS or DataStage mappings replaced with a metadata-driven framework your team can maintain.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">MetLife — metadata-driven Medallion</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Quarterly supplier and partner feeds</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">A dozen new feeds a quarter profiled, mapped, documented and governed in days rather than weeks each.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Up to 80% faster onboarding</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">New source onboarding at scale</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">CSV, delimited, JSON, XML, Avro and Parquet discovered and standardised into one onboarding pattern across projects.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Woolworths — configuration-driven onboarding</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Column metadata and DQ checks</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Column-level descriptions and candidate quality checks drafted for newly onboarded tables, approved by an engineer before they go live.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Woolworths — LLM metadata agents</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq Shift</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Core system migration</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">Customers moved between billing, policy or lending platforms in waves, with staged validation before production approval.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Optus, RESIMAC patterns</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px; display: flex; flex-direction: column">
+          <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; font-size: 10.5px; color: #FFFFFF; background: #1D4ED8; padding: 6px 10px; border-radius: 999px">Noviq Shift</span>
+          <h3 style="margin: 14px 0 0; font-size: 17px; line-height: 1.3">Stalled migration rescue</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.65; color: #4C5470">An in-flight programme that has slipped twice: object inventory rebuilt, dependencies mapped, reconciliation put back on a footing.</p>
+          <p style="margin: auto 0 0; padding-top: 16px; font-size: 13px; font-weight: 600; color: #6B7391">Coal LSL — recovered and landed on time</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section style="background: #FFFFFF; padding: 80px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.03em; max-width: 24ch">Platform-neutral, by design.</h2>
+      <p style="margin: 16px 0 0; font-size: 17px; line-height: 1.65; color: #4C5470; max-width: 70ch">Noviq runs against whatever you already license. It has no preferred destination, because we don't earn a margin on the one you pick.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 18px; margin-top: 36px">
+        <div style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px">
+          <h3 style="margin: 0; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; color: #6B7391">TYPICAL SOURCES</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.8; color: #3B4360">Oracle &middot; SQL Server &middot; Teradata &middot; Hadoop / Hive &middot; Informatica &middot; SSIS &middot; DataStage &middot; flat files &middot; REST APIs</p>
+        </div>
+        <div style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px">
+          <h3 style="margin: 0; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; color: #6B7391">TYPICAL TARGETS</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.8; color: #3B4360">Snowflake &middot; Databricks &middot; Microsoft Fabric &middot; BigQuery &middot; AWS (PostgreSQL, Redshift) &middot; Dremio</p>
+        </div>
+        <div style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px">
+          <h3 style="margin: 0; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; color: #6B7391">FILE FORMATS</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.8; color: #3B4360">CSV &middot; delimited &middot; JSON &middot; XML &middot; Avro &middot; Parquet</p>
+        </div>
+        <div style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 24px">
+          <h3 style="margin: 0; font-size: 11.5px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.12em; color: #6B7391">ORCHESTRATION</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.8; color: #3B4360">Azure Data Factory &middot; Matillion &middot; dbt &middot; Databricks Workflows &middot; Airflow / Composer &middot; Openflow</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8; background: #EAF1FE; padding: 8px 15px; border-radius: 999px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #1D4ED8; display: inline-block" aria-hidden="true"></span>
+        HOW IT COMPARES
+      </p>
+      <h2 style="margin: 20px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 42px); line-height: 1.08; letter-spacing: -0.03em; max-width: 26ch">Against the alternatives you're probably also considering.</h2>
+      <div style="margin-top: 40px; overflow-x: auto; border: 1px solid #E2E8F3; border-radius: 8px; background: #FFFFFF">
+        <table style="width: 100%; min-width: 880px; border-collapse: collapse; font-size: 14.5px">
+          <thead>
+            <tr style="background: #0E1730; color: #FFFFFF; text-align: left">
+              <th scope="col" style="padding: 16px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; font-weight: 700">Consideration</th>
+              <th scope="col" style="padding: 16px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; font-weight: 700; background: #1D4ED8">Noviq / Noviq Shift</th>
+              <th scope="col" style="padding: 16px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; font-weight: 700">Vendor-native converters</th>
+              <th scope="col" style="padding: 16px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; font-weight: 700">Catalogue / ETL suites</th>
+              <th scope="col" style="padding: 16px 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; font-weight: 700">Manual / contractor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: #F6F8FC; border-bottom: 1px solid #E8EDF6">
+              <td style="padding: 16px 18px; font-weight: 600; color: #141B2E">Platform-neutral target</td>
+              <td style="padding: 16px 18px; color: #141B2E; font-weight: 600">Yes &mdash; five platforms</td>
+              <td style="padding: 16px 18px; color: #4C5470">Locks to one destination</td>
+              <td style="padding: 16px 18px; color: #4C5470">Partial</td>
+              <td style="padding: 16px 18px; color: #4C5470">Depends on the individual</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8EDF6">
+              <td style="padding: 16px 18px; font-weight: 600; color: #141B2E">Human-in-the-loop by design</td>
+              <td style="padding: 16px 18px; color: #141B2E; font-weight: 600">Mandatory sign-off</td>
+              <td style="padding: 16px 18px; color: #4C5470">Optional review</td>
+              <td style="padding: 16px 18px; color: #4C5470">Varies</td>
+              <td style="padding: 16px 18px; color: #4C5470">Yes, but slow</td>
+            </tr>
+            <tr style="background: #F6F8FC; border-bottom: 1px solid #E8EDF6">
+              <td style="padding: 16px 18px; font-weight: 600; color: #141B2E">Client-owned artefacts, no new licence</td>
+              <td style="padding: 16px 18px; color: #141B2E; font-weight: 600">Yes</td>
+              <td style="padding: 16px 18px; color: #4C5470">Tied to the vendor</td>
+              <td style="padding: 16px 18px; color: #4C5470">Subscription required</td>
+              <td style="padding: 16px 18px; color: #4C5470">Yes</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E8EDF6">
+              <td style="padding: 16px 18px; font-weight: 600; color: #141B2E">Reconciliation evidence built in</td>
+              <td style="padding: 16px 18px; color: #141B2E; font-weight: 600">Yes, at every step</td>
+              <td style="padding: 16px 18px; color: #4C5470">Limited</td>
+              <td style="padding: 16px 18px; color: #4C5470">Add-on</td>
+              <td style="padding: 16px 18px; color: #4C5470">Spreadsheet</td>
+            </tr>
+            <tr style="background: #F6F8FC">
+              <td style="padding: 16px 18px; font-weight: 600; color: #141B2E">Runs inside your existing stack</td>
+              <td style="padding: 16px 18px; color: #141B2E; font-weight: 600">Yes</td>
+              <td style="padding: 16px 18px; color: #4C5470">Vendor environment</td>
+              <td style="padding: 16px 18px; color: #4C5470">Separate platform</td>
+              <td style="padding: 16px 18px; color: #4C5470">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin: 18px 0 0; font-size: 13.5px; line-height: 1.6; color: #6B7391">Characterisations describe each category's design intent, not a benchmark of any named vendor.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background: #FFFFFF; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(27px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.03em; max-width: 20ch">Questions we always get</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 18px; margin-top: 36px">
+        <article style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 26px">
+          <h3 style="margin: 0; font-size: 18px; line-height: 1.3">Is Noviq a product we have to buy?</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">No. It's delivery IP we bring to an engagement and run inside your environment. There's no licence, no subscription and nothing to renew &mdash; you pay for the engagement, and you keep what it produces.</p>
+        </article>
+        <article style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 26px">
+          <h3 style="margin: 0; font-size: 18px; line-height: 1.3">Does our data leave our tenancy?</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">The engagement is designed to run inside your Australian environment, and we scope exactly what the model sees before anything starts. We'll walk your security team through it in the demo.</p>
+        </article>
+        <article style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 26px">
+          <h3 style="margin: 0; font-size: 18px; line-height: 1.3">What if the AI gets a mapping wrong?</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">It will, sometimes &mdash; which is why nothing is generated before a named person approves it. Compatibility gaps and low-confidence proposals are flagged for engineer review rather than quietly guessed.</p>
+        </article>
+        <article style="border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 26px">
+          <h3 style="margin: 0; font-size: 18px; line-height: 1.3">How do we try it without a big commitment?</h3>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">A 45-minute demo runs it against a sample of your own schema. A four-to-six week proof of value then puts it against one real source or estate, with an evaluation record you can take to a board.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: #0E1730; color: #FFFFFF; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto; text-align: center">
+      <h2 style="margin: 0 auto; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(30px, 3.8vw, 50px); line-height: 1.05; letter-spacing: -0.035em; max-width: 19ch">See it run on your own schema.</h2>
+      <p style="margin: 22px auto 0; font-size: 18px; line-height: 1.6; color: #BCC5DA; max-width: 64ch">Not a canned dataset &mdash; a sample of your own. Forty-five minutes, no fee, and your security team is welcome on the call.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; justify-content: center">
+        <a href="About.html#contact" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; background: #1D4ED8; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 999px">Book a Noviq demo
+          <svg width="15" height="15" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a href="Noviq.html" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 30px; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; border: 1px solid #3A4A75; border-radius: 999px">See the frameworks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #0A1125; color: #BCC5DA; padding: 60px 32px 34px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 36px">
+        <div>
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; color: #FFFFFF">The Data Guyz</p>
+          <p style="margin: 8px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #5FD4E4">YOUR DATA EXPERTS</p>
+          <p style="margin: 18px 0 0; font-size: 15px; line-height: 1.6; color: #FFFFFF; font-weight: 600">Your ecosystem. Your IP. Our engineering.</p>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.65">Data advisory, cloud strategy, AI adoption and analytics &mdash; engineered inside the platforms you already own.</p>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">CAPABILITIES</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="Services.html#advisory" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Data Advisory</a></li>
+            <li><a href="Services.html#cloud" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Cloud Strategy</a></li>
+            <li><a href="Services.html#ai" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">AI Adoption</a></li>
+            <li><a href="Services.html#insights" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Insights &amp; Analytics</a></li>
+            <li><a href="Modernisation.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Platform Modernisation</a></li>
+            <li><a href="Agents.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">AI Agents &amp; Knowledge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">OUR IP</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Noviq</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Noviq Shift</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">DQ &amp; Load Audit</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">ADDF</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">EXPLORE</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="Offers.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Offer catalogue</a></li>
+            <li><a href="UseCases.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Use-case library</a></li>
+            <li><a href="Industries.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Industries</a></li>
+            <li><a href="Accountants.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">AI for accountants</a></li>
+            <li><a href="CaseStudies.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Case studies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">COMPANY</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="About.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">About us</a></li>
+            <li><a href="About.html#contact" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Contact</a></li>
+            <li><a href="Offers.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Partner with us</a></li>
+          </ul>
+          <p style="margin: 18px 0 0; font-size: 14px; line-height: 1.7; color: #8E99B6">Google Cloud Partner<br>Snowflake Registered Partner<br>Anthropic Claude Partner Network</p>
+        </div>
+      </div>
+      <div style="height: 6px; margin: 42px 0 22px; background-image: repeating-linear-gradient(to right, #22304F 0, #22304F 1px, transparent 1px, transparent 14px)" aria-hidden="true"></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 13px; color: #8E99B6">
+        <span>&copy; 2026 The Data Guyz</span>
+        <span>THE PARTY GUYS PTY LTD trading as The Data Guyz &middot; ABN 37 636 045 531</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

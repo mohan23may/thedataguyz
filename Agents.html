@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E1730">
+<title>AI agents &amp; enterprise knowledge engines</title>
+<meta name="description" content="AI agents on your existing BI and lakehouse, and custom RAG knowledge engines: data pipelines, metadata and retrieval fixed first, then one agent with an evidence trail.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Data Guyz">
+<meta property="og:title" content="AI agents & enterprise knowledge engines | The Data Guyz">
+<meta property="og:description" content="AI agents on your existing BI and lakehouse, and custom RAG knowledge engines: data pipelines, metadata and retrieval fixed first, then one agent with an evidence trail.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+body { margin: 0; background: #F6F8FC; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #141B2E; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+a { color: #1A47B8; }
+a:hover { color: #123089; }
+h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif; text-wrap: pretty; }
+p { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<div style="width: 100%; max-width: 100%; overflow-x: hidden">
+
+  <!-- HEADER -->
+  <header style="background: #0E1730; color: #FFFFFF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px">
+      <a href="index.html" style="display: flex; align-items: center; gap: 11px; text-decoration: none">
+        <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-label="The Data Guyz">
+          <path d="M23 4 V30" stroke="#2563EB" stroke-width="3.2" stroke-linecap="round" fill="none"></path>
+          <path d="M23 13.5 A8 8 0 1 0 23 26.5" stroke="#2563EB" stroke-width="3.2" stroke-linecap="round" fill="none"></path>
+          <path d="M27.8 8 V30" stroke="#2FC4D8" stroke-width="2.3" stroke-linecap="round" fill="none"></path>
+          <path d="M31.4 12 V30" stroke="#2FC4D8" stroke-width="1.7" stroke-linecap="round" fill="none" opacity="0.6"></path>
+        </svg>
+        <span style="display: flex; flex-direction: column; line-height: 1">
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; color: #FFFFFF">The Data Guyz</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 9px; letter-spacing: 0.2em; color: #5FD4E4; margin-top: 5px">YOUR DATA EXPERTS</span>
+        </span>
+      </a>
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 21px; margin-left: auto; align-items: center">
+        <a href="Services.html" style="font-size: 14.5px; font-weight: 600; color: #FFFFFF; text-decoration: none; border-bottom: 2px solid #2563EB; padding-bottom: 3px">Capabilities</a>
+        <a href="Noviq.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Noviq</a>
+        <a href="Offers.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Offers</a>
+        <a href="Industries.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Industries</a>
+        <a href="CaseStudies.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">Case studies</a>
+        <a href="About.html" style="font-size: 14.5px; font-weight: 500; color: #D7DCEA; text-decoration: none">About</a>
+      </nav>
+      <a href="About.html#contact" style="display: inline-flex; align-items: center; gap: 9px; min-height: 46px; padding: 0 22px; background: #1D4ED8; color: #FFFFFF; font-size: 14.5px; font-weight: 600; text-decoration: none; border-radius: 999px">Talk to us
+        <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="agents" style="background: #0E1730; color: #FFFFFF; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px; padding: 84px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 9px; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #5FD4E4; background: #16213E; border: 1px solid #2A3A63; padding: 8px 15px; border-radius: 999px">
+        <span style="width: 6px; height: 6px; border-radius: 999px; background: #2FC4D8; display: inline-block" aria-hidden="true"></span>
+        AI AGENTS &amp; KNOWLEDGE ENGINES
+      </p>
+      <h1 style="margin: 24px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; letter-spacing: -0.035em; max-width: 21ch">You already built the data. The agent is the part that makes people use it.</h1>
+      <p style="margin: 22px 0 0; font-size: 19px; line-height: 1.6; color: #D7DCEA; max-width: 74ch">Two patterns, same principle: an agent is only as good as the pipeline, the metadata and the retrieval underneath it. We build that layer first, then put one agent on top of it with a scope you can describe in a sentence.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 18px; margin-top: 48px">
+        <a href="#knowledge" style="background: #16213E; border: 1px solid #3A4A75; border-radius: 8px; padding: 30px 26px; text-decoration: none; display: block">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #8FB2F8">PATTERN 01</p>
+          <h2 style="margin: 12px 0 0; font-size: 23px; line-height: 1.25; color: #FFFFFF">The knowledge engine</h2>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: #BCC5DA">You have a datamart and a document estate. Copilot or search returns the wrong clause, the wrong version, or nothing. You need the pipeline, the metadata and the retrieval fixed before any agent is worth deploying.</p>
+          <p style="margin: 18px 0 0; font-size: 14.5px; font-weight: 600; color: #5FD4E4">Diagnose, then build &rarr;</p>
+        </a>
+        <a href="#insight" style="background: #16213E; border: 1px solid #3A4A75; border-radius: 8px; padding: 30px 26px; text-decoration: none; display: block">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #8FB2F8">PATTERN 02</p>
+          <h2 style="margin: 12px 0 0; font-size: 23px; line-height: 1.25; color: #FFFFFF">The insight agent</h2>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: #BCC5DA">You have a lakehouse and hundreds of reports already. Executives still wait on an analyst for a one-line answer. You need an agent on top of the BI you own &mdash; not another platform rebuild.</p>
+          <p style="margin: 18px 0 0; font-size: 14.5px; font-weight: 600; color: #5FD4E4">Reporting to decisions &rarr;</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATTERN 01: KNOWLEDGE ENGINE ============ -->
+  <section id="knowledge" style="background: #FFFFFF; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">PATTERN 01 &mdash; THE KNOWLEDGE ENGINE</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.5vw, 46px); line-height: 1.06; letter-spacing: -0.03em; max-width: 24ch">&ldquo;We bought Copilot. It still can't find the contract.&rdquo;</h2>
+      <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.65; color: #4C5470; max-width: 76ch">It's the most common AI complaint we hear from enterprises that have already invested in data. Users fall back to manual searching, productivity drops, confidence drops faster &mdash; and nobody has confirmed the actual root cause. There are four, and they are not all the tool's fault.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; margin-top: 44px">
+        <div style="flex: 1 1 180px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">USER INTENT</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">A question a human could answer in ten minutes with the right file in front of them.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 180px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">AI ASSISTANT</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Copilot, an enterprise search tool, or a chat assistant wired to the tenant.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 180px; min-width: 0; background: #FBEFE4; border: 1px solid #E6C9A8; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #9A4A08">THE BREAK</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #7A3A06; font-weight: 500">Indexing, permissions, document quality or versioning &mdash; unconfirmed.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 180px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">OUTPUT</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Missing or incomplete &mdash; and a user who goes back to searching by hand.</p>
+        </div>
+      </div>
+
+      <h3 style="margin: 56px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 25px; line-height: 1.2; letter-spacing: -0.02em">Four root causes. Each one has a validation test.</h3>
+      <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: #4C5470; max-width: 74ch">We don't recommend a rebuild until we know which of these is actually biting. Two of them are configuration. Two of them are data work.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 18px; margin-top: 32px">
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">CAUSE 01 &middot; ACCESS &amp; INFRASTRUCTURE</p>
+          <h4 style="margin: 11px 0 0; font-size: 19px; line-height: 1.25">Incomplete document indexing &amp; access</h4>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Missing indexes, restricted permissions, repositories never connected in the first place.</p>
+          <p style="margin: 14px 0 0; font-size: 14.2px; line-height: 1.6; color: #3B4360"><strong>We do:</strong> audit indexing, verify SharePoint and OneDrive permissions, review search scope, configure the missing connectors.</p>
+          <p style="margin: 14px 0 0; padding-top: 14px; border-top: 1px solid #E2E8F3; font-size: 14px; line-height: 1.6; color: #0E6B7A; font-weight: 600">Validation test: can the affected user discover a file we know exists?</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">CAUSE 02 &middot; DATA &amp; CONTENT</p>
+          <h4 style="margin: 11px 0 0; font-size: 19px; line-height: 1.25">Poor document quality &amp; structure</h4>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Scanned PDFs, unreadable text, inconsistent formats, missing metadata. An agent cannot read what was never extracted.</p>
+          <p style="margin: 14px 0 0; font-size: 14.2px; line-height: 1.6; color: #3B4360"><strong>We do:</strong> apply OCR, extract and normalise content, standardise metadata and document naming.</p>
+          <p style="margin: 14px 0 0; padding-top: 14px; border-top: 1px solid #E2E8F3; font-size: 14px; line-height: 1.6; color: #0E6B7A; font-weight: 600">Validation test: measure extraction accuracy on the clauses that matter.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">CAUSE 03 &middot; SYSTEM &amp; MECHANICS</p>
+          <h4 style="margin: 11px 0 0; font-size: 19px; line-height: 1.25">Ineffective semantic retrieval</h4>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Irrelevant results, missed clauses, not enough context handed to the model to answer with.</p>
+          <p style="margin: 14px 0 0; font-size: 14.2px; line-height: 1.6; color: #3B4360"><strong>We do:</strong> improve query specificity, add metadata filtering, evaluate hybrid search, and only then consider custom RAG with clause-aware chunking and reranking.</p>
+          <p style="margin: 14px 0 0; padding-top: 14px; border-top: 1px solid #E2E8F3; font-size: 14px; line-height: 1.6; color: #0E6B7A; font-weight: 600">Validation test: measure correct document and clause retrieval rate.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">CAUSE 04 &middot; GOVERNANCE</p>
+          <h4 style="margin: 11px 0 0; font-size: 19px; line-height: 1.25">Document versioning &amp; governance</h4>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Duplicate contracts, outdated versions, missing amendments, unclear document status. The agent answers from v1 while the business runs on vFINAL_edited.</p>
+          <p style="margin: 14px 0 0; font-size: 14.2px; line-height: 1.6; color: #3B4360"><strong>We do:</strong> centralise the document inventory, implement version tracking, link amendments, standardise lifecycle metadata.</p>
+          <p style="margin: 14px 0 0; padding-top: 14px; border-top: 1px solid #E2E8F3; font-size: 14px; line-height: 1.6; color: #0E6B7A; font-weight: 600">Validation test: does it retrieve the latest effective agreement?</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGNOSTIC ROADMAP -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">THE DIAGNOSTIC ROADMAP</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 28ch">Diagnose first. Optimise what you own. Build custom only when the evidence says so.</h2>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch; margin-top: 44px">
+        <div style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 26px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">PHASE 1</p>
+          <h3 style="margin: 11px 0 0; font-size: 21px; line-height: 1.25">Assessment</h3>
+          <ul style="margin: 14px 0 0; padding-left: 18px; font-size: 15px; line-height: 1.8; color: #4C5470">
+            <li>Select 20&ndash;30 benchmark questions from the real business.</li>
+            <li>Test indexing, document quality, retrieval and version relevance.</li>
+            <li>Identify the confirmed root causes &mdash; not the suspected ones.</li>
+          </ul>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#1D4ED8" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 26px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">PHASE 2</p>
+          <h3 style="margin: 11px 0 0; font-size: 21px; line-height: 1.25">Improvement</h3>
+          <ul style="margin: 14px 0 0; padding-left: 18px; font-size: 15px; line-height: 1.8; color: #4C5470">
+            <li>Prioritise targeted fixes against those causes.</li>
+            <li>Re-test using the same benchmark questions.</li>
+            <li>Measure retrieval accuracy, answer quality and citation accuracy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; background: #0E1730; border-radius: 8px; padding: 28px 30px">
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #FFFFFF; font-weight: 600">Key message: diagnose first, optimise the platform you already pay for where possible, and consider custom RAG only when necessary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section style="background: #FFFFFF; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">THE OPTIONS, HONESTLY COMPARED</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 26ch">Four treatments. We don't resell any of them.</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px; margin-top: 44px">
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 24px">
+          <h3 style="margin: 0; font-size: 19px; line-height: 1.25">Glean</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Enterprise AI search as a SaaS product.</p>
+          <ul style="margin: 16px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4C5470">
+            <li>Implementation complexity: <strong style="color: #0E6B7A">low</strong></li>
+            <li>Customisation: <strong style="color: #0E6B7A">low</strong></li>
+            <li>Retrieval control: <strong style="color: #9A4A08">medium</strong></li>
+            <li>Maintenance: <strong style="color: #0E6B7A">low</strong></li>
+          </ul>
+          <p style="margin: 16px 0 0; font-size: 13.8px; line-height: 1.6; color: #3B4360"><strong>Best for:</strong> broad enterprise search.</p>
+        </article>
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 24px">
+          <h3 style="margin: 0; font-size: 19px; line-height: 1.25">Google Cloud Agent Search</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Managed AI search platform inside the Google ecosystem.</p>
+          <ul style="margin: 16px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4C5470">
+            <li>Implementation complexity: <strong style="color: #9A4A08">medium</strong></li>
+            <li>Customisation: <strong style="color: #9A4A08">medium</strong></li>
+            <li>Retrieval control: <strong style="color: #9A4A08">medium</strong></li>
+            <li>Maintenance: <strong style="color: #9A4A08">medium</strong></li>
+          </ul>
+          <p style="margin: 16px 0 0; font-size: 13.8px; line-height: 1.6; color: #3B4360"><strong>Best for:</strong> ecosystem-integrated search.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-left: 4px solid #1D4ED8; border-radius: 8px; padding: 28px 24px">
+          <h3 style="margin: 0; font-size: 19px; line-height: 1.25">Custom RAG</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">A document-retrieval architecture built for your estate.</p>
+          <ul style="margin: 16px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4C5470">
+            <li>Implementation complexity: <strong style="color: #9A4A08">high</strong></li>
+            <li>Customisation: <strong style="color: #0E6B7A">high</strong></li>
+            <li>Retrieval control: <strong style="color: #0E6B7A">high</strong></li>
+            <li>Maintenance: <strong style="color: #9A4A08">high</strong></li>
+          </ul>
+          <p style="margin: 16px 0 0; font-size: 13.8px; line-height: 1.6; color: #3B4360"><strong>Best for:</strong> highly specialised data control. <span style="color: #1D4ED8; font-weight: 600">This is where we build.</span></p>
+        </article>
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 28px 24px">
+          <h3 style="margin: 0; font-size: 19px; line-height: 1.25">Icertis</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Purpose-built contract intelligence platform.</p>
+          <ul style="margin: 16px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.8; color: #4C5470">
+            <li>Implementation complexity: <strong style="color: #9A4A08">high</strong></li>
+            <li>Customisation: <strong style="color: #9A4A08">medium</strong></li>
+            <li>Retrieval control: <strong style="color: #0E6B7A">high</strong></li>
+            <li>Maintenance: <strong style="color: #9A4A08">medium</strong></li>
+          </ul>
+          <p style="margin: 16px 0 0; font-size: 13.8px; line-height: 1.6; color: #3B4360"><strong>Best for:</strong> full contract lifecycle management.</p>
+        </article>
+      </div>
+      <p style="margin: 20px 0 0; font-size: 12.5px; line-height: 1.6; color: #6B7391">Ratings are our analytical view for scoping, not vendor benchmarks. We hold no reseller relationship with any of these products.</p>
+    </div>
+  </section>
+
+  <!-- RAG BLUEPRINT -->
+  <section style="background: #0E1730; color: #FFFFFF; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #5FD4E4">THE BLUEPRINT</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 26ch">The pipeline, the metadata and the retrieval &mdash; in that order.</h2>
+      <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #D7DCEA; max-width: 74ch">This is the architecture when the diagnosis says build. Every layer sits inside an enterprise security and role-based access control boundary, so retrieval respects permissions rather than having them bolted on afterwards.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 44px; max-width: 760px">
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 22px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">LAYER 01</p>
+          <p style="margin: 9px 0 0; font-size: 17px; font-weight: 600; color: #FFFFFF">Document sources</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA">SharePoint, PDFs, Word, ticketing systems, wikis, shared drives &mdash; connected, not copied.</p>
+        </div>
+        <div style="align-self: center" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 22 22"><path d="M4 7 L11 15 L18 7" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 22px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">LAYER 02 &mdash; THE PIPELINE</p>
+          <p style="margin: 9px 0 0; font-size: 17px; font-weight: 600; color: #FFFFFF">Processing engine</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA">OCR &middot; extraction &middot; clause-aware chunking &middot; metadata generation. The step most teams skip, and the one that decides everything downstream.</p>
+        </div>
+        <div style="align-self: center" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 22 22"><path d="M4 7 L11 15 L18 7" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="background: #0E2A3A; border: 1px solid #2FC4D8; border-radius: 6px; padding: 22px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">LAYER 03 &mdash; INSIDE THE SECURITY &amp; RBAC BOUNDARY</p>
+          <p style="margin: 9px 0 0; font-size: 17px; font-weight: 600; color: #FFFFFF">Hybrid search system</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA">Keyword match + vector search + reranking. Hybrid because neither one alone finds a clause that is worded differently to the question.</p>
+        </div>
+        <div style="align-self: center" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 22 22"><path d="M4 7 L11 15 L18 7" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="background: #0E2A3A; border: 1px solid #2FC4D8; border-radius: 6px; padding: 22px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">LAYER 04 &mdash; INSIDE THE SECURITY &amp; RBAC BOUNDARY</p>
+          <p style="margin: 9px 0 0; font-size: 17px; font-weight: 600; color: #FFFFFF">LLM generation</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA">Synthesised answers with deterministic source citations &mdash; file and clause, every time, or no answer at all.</p>
+        </div>
+        <div style="align-self: center" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 22 22"><path d="M4 7 L11 15 L18 7" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 22px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">LAYER 05</p>
+          <p style="margin: 9px 0 0; font-size: 17px; font-weight: 600; color: #FFFFFF">Enterprise search portal or agent</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA">Where the business actually asks the question &mdash; in a portal, in Teams, or through an agent with a bounded tool list.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 40px; background: #16213E; border: 1px solid #3A4A75; border-radius: 8px; padding: 30px 28px">
+        <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #5FD4E4">FROM DOCUMENT SEARCH TO CLAUSE-LEVEL INTELLIGENCE</p>
+        <p style="margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #FFFFFF">&ldquo;What is the termination notice period for ABC Pty Ltd?&rdquo; &rarr; <strong>90 days' written notice.</strong> Source: Service_Agreement_ABC_2025.pdf, Clause 12.3.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 14px; margin-top: 24px">
+          <p style="margin: 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA"><strong style="color: #FFFFFF">Clause-level</strong> retrieval precision, not document-level.</p>
+          <p style="margin: 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA"><strong style="color: #FFFFFF">Hybrid search</strong> processing behind the answer.</p>
+          <p style="margin: 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA"><strong style="color: #FFFFFF">Version-aware</strong> document selection.</p>
+          <p style="margin: 0; font-size: 14.2px; line-height: 1.6; color: #BCC5DA"><strong style="color: #FFFFFF">Deterministic</strong> source citations.</p>
+        </div>
+        <p style="margin: 20px 0 0; font-size: 12.5px; line-height: 1.6; color: #8E99B6">Illustrative example. Not actual client data or validated results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30-DAY POC -->
+  <section style="background: #EAF1FE; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">PROOF OF CONCEPT</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 26ch">Thirty days, three contenders, one evidence-based answer.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; margin-top: 44px">
+        <div style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">SCOPE</p>
+          <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.6; color: #141B2E; font-weight: 600">100&ndash;200 complex sample documents</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #4C5470">Chosen for difficulty, not convenience &mdash; the scanned ones, the amended ones.</p>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">TESTING</p>
+          <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.6; color: #141B2E; font-weight: 600">30 benchmark business questions</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #4C5470">Written with your people, answerable from your documents, scored the same way each run.</p>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">EVALUATION</p>
+          <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.6; color: #141B2E; font-weight: 600">Head-to-head on the same questions</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #4C5470">Your current assistant against the shortlisted alternatives and a custom build.</p>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">METRICS</p>
+          <p style="margin: 10px 0 0; font-size: 15.5px; line-height: 1.6; color: #141B2E; font-weight: 600">Accuracy, exact citations, speed, cost</p>
+          <p style="margin: 8px 0 0; font-size: 14.2px; line-height: 1.6; color: #4C5470">Including infrastructure cost per query, so the decision survives the second budget cycle.</p>
+        </div>
+      </div>
+      <div style="margin-top: 24px; background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 28px">
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B4360"><strong style="color: #141B2E">Conclusion we aim for:</strong> diagnose first, test against the alternatives, and select on empirical evidence &mdash; not on which vendor presented last.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PATTERN 02: INSIGHT AGENT ============ -->
+  <section id="insight" style="background: #FFFFFF; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #9A4A08">PATTERN 02 &mdash; THE INSIGHT AGENT</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.5vw, 46px); line-height: 1.06; letter-spacing: -0.03em; max-width: 22ch">From reporting to intelligent decisions.</h2>
+      <p style="margin: 20px 0 0; font-size: 18px; line-height: 1.65; color: #4C5470; max-width: 76ch">A quick-service restaurant group, a retailer, a franchise network &mdash; the pattern is the same. Multiple sources feed a lakehouse that already works. A thousand reports sit on top of it. And an executive who wants one number still waits on an analyst. The fix is not another platform. It is agents on top of the BI and analytics you already own.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; margin-top: 44px">
+        <div style="flex: 1 1 190px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">EXISTING</p>
+          <p style="margin: 9px 0 0; font-size: 15.5px; font-weight: 600; line-height: 1.35">Multiple data sources</p>
+          <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #4C5470">POS, delivery platforms, loyalty, supply chain, rosters, finance.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 190px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">EXISTING</p>
+          <p style="margin: 9px 0 0; font-size: 15.5px; font-weight: 600; line-height: 1.35">Lakehouse</p>
+          <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #4C5470">Already built, already paid for. We don't propose replacing it.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 210px; min-width: 0; background: #EAF1FE; border: 1px solid #1D4ED8; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">REUSE + IMPROVE</p>
+          <p style="margin: 9px 0 0; font-size: 15.5px; font-weight: 600; line-height: 1.35">Trusted models + metrics</p>
+          <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #3B4360">One approved definition per business measure. This is the layer we strengthen.</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#CBD5E6" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 210px; min-width: 0; background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 6px; padding: 22px 20px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">THREE WAYS OUT</p>
+          <p style="margin: 9px 0 0; font-size: 15.5px; font-weight: 600; line-height: 1.35">Reporting &middot; self-service &middot; agent</p>
+          <p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #4C5470">Three ways to get an answer, one source of truth underneath all of them.</p>
+        </div>
+      </div>
+      <div style="margin-top: 16px; background: #0E1730; border-radius: 8px; padding: 20px 26px">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #FFFFFF"><strong>Controlled end to end:</strong> security &middot; approved definitions &middot; quality &middot; monitoring &middot; business ownership</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE WAYS -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 28ch">One connected reporting and intelligence experience.</h2>
+      <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #4C5470; max-width: 74ch">Different ways of getting answers, powered by the same trusted business information. Nobody has to give up the report they rely on to get the agent.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 30px 26px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">01 / KEEP WHAT WORKS</p>
+          <h3 style="margin: 11px 0 0; font-size: 21px; line-height: 1.25">Trusted reports</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; color: #6B7391">For repeatable decisions</p>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">The right recurring reports, clear ownership and consistent business measures. We rationalise, we don't delete.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 30px 26px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">02 / MAKE DATA EASIER TO USE</p>
+          <h3 style="margin: 11px 0 0; font-size: 21px; line-height: 1.25">Governed self-service</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; color: #6B7391">For flexible exploration</p>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">Business teams explore approved information without starting from scratch or raising a ticket.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-left: 4px solid #1D4ED8; border-radius: 8px; padding: 30px 26px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">03 / BUILD THE NEW EXPERIENCE</p>
+          <h3 style="margin: 11px 0 0; font-size: 21px; line-height: 1.25">The insight agent</h3>
+          <p style="margin: 6px 0 0; font-size: 14.5px; color: #6B7391">For questions and alerts</p>
+          <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: #4C5470">Ask in everyday language, get the answer with its source report, and monitor the measures that matter without opening anything.</p>
+        </article>
+      </div>
+      <div style="margin-top: 20px; background: #0E1730; border-radius: 8px; padding: 22px 28px">
+        <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #FFFFFF"><strong>One trusted foundation underneath:</strong> access controls &middot; ownership &middot; data quality &middot; change management</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT AN INSIGHT AGENT DOES -->
+  <section style="background: #FFFFFF; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+        <div style="flex: 1 1 380px; min-width: 0">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">WHAT IT ACTUALLY DOES</p>
+          <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -0.03em">Ask &middot; explain &middot; find &middot; monitor.</h2>
+          <p style="margin: 18px 0 0; font-size: 16.5px; line-height: 1.65; color: #4C5470">A business-friendly assistant tailored to your reporting environment. It answers from your approved metrics and names the source report it used &mdash; so the answer can be checked, challenged and taken into a meeting.</p>
+          <ul style="margin: 22px 0 0; padding-left: 20px; font-size: 15.5px; line-height: 1.9; color: #4C5470">
+            <li><strong style="color: #141B2E">Ask</strong> &mdash; a measure, a region, a period, in plain English.</li>
+            <li><strong style="color: #141B2E">Explain</strong> &mdash; what moved, against what comparison.</li>
+            <li><strong style="color: #141B2E">Find</strong> &mdash; which of the thousand reports already answers this.</li>
+            <li><strong style="color: #141B2E">Monitor</strong> &mdash; alert on selected measures without anyone opening a dashboard.</li>
+          </ul>
+        </div>
+        <div style="flex: 1 1 340px; min-width: 0; background: #F6F8FC; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 26px">
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #4C5470"><strong style="color: #141B2E">You:</strong> Show me cheeseburger sales in the North region last month.</p>
+          <div style="margin: 18px 0 0; background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 6px; padding: 22px 20px">
+            <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">OCT 2026 | NORTH REGION</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 18px 32px; margin-top: 16px">
+              <div><p style="margin: 0; font-size: 12px; color: #6B7391">UNITS SOLD</p><p style="margin: 4px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; color: #1D4ED8; letter-spacing: -0.02em">24,680</p></div>
+              <div><p style="margin: 0; font-size: 12px; color: #6B7391">NET SALES</p><p style="margin: 4px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; color: #1D4ED8; letter-spacing: -0.02em">$172,760</p></div>
+              <div><p style="margin: 0; font-size: 12px; color: #6B7391">VS SEPTEMBER</p><p style="margin: 4px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 26px; color: #0E6B7A; letter-spacing: -0.02em">+8.2%</p></div>
+            </div>
+            <p style="margin: 20px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">UNITS SOLD BY CHANNEL</p>
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 9px">
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 72px; font-size: 13px; color: #4C5470">Takeaway</span><span style="height: 14px; width: 58%; background: #1D4ED8; border-radius: 3px" aria-hidden="true"></span><span style="font-size: 13px; color: #141B2E; font-weight: 600">11,320</span></div>
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 72px; font-size: 13px; color: #4C5470">Dine-in</span><span style="height: 14px; width: 46%; background: #5B86E5; border-radius: 3px" aria-hidden="true"></span><span style="font-size: 13px; color: #141B2E; font-weight: 600">8,950</span></div>
+              <div style="display: flex; align-items: center; gap: 10px"><span style="flex: 0 0 72px; font-size: 13px; color: #4C5470">Delivery</span><span style="height: 14px; width: 23%; background: #9FB7F0; border-radius: 3px" aria-hidden="true"></span><span style="font-size: 13px; color: #141B2E; font-weight: 600">4,410</span></div>
+            </div>
+            <p style="margin: 18px 0 0; font-size: 14px; line-height: 1.6; color: #3B4360"><strong>Quick takeaway:</strong> takeaway led sales, at 46% of cheeseburger units.</p>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 14px; line-height: 1.6; color: #4C5470"><strong style="color: #141B2E">Suggested follow-up:</strong> would you like the past 12 months for this region?</p>
+          <p style="margin: 16px 0 0; font-size: 12.5px; line-height: 1.6; color: #6B7391">Illustrative. Live answers reference your approved metrics and name the source report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE BUILD IT -->
+  <section style="background: #F6F8FC; padding: 88px 32px; border-top: 1px solid #E2E8F3">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">HOW WE BUILD ONE</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 26ch">An agent built for your business, not a demo built for ours.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 18px; margin-top: 44px">
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">01</p>
+          <h3 style="margin: 10px 0 0; font-size: 19px; line-height: 1.25">Design for the business</h3>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Select the valuable business questions, the user journeys and the right agent skills. A short, honest list beats an agent that claims to do everything.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">02</p>
+          <h3 style="margin: 10px 0 0; font-size: 19px; line-height: 1.25">Connect trusted information</h3>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Integrate existing reports, approved measures and the catalogue context the agent needs to be right rather than plausible.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">03</p>
+          <h3 style="margin: 10px 0 0; font-size: 19px; line-height: 1.25">Make it safe and reliable</h3>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Enforce permissions, test answers against a golden set, and handle unsupported questions clearly instead of guessing at them.</p>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 28px 24px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #1D4ED8">04</p>
+          <h3 style="margin: 10px 0 0; font-size: 19px; line-height: 1.25">Embed and improve</h3>
+          <p style="margin: 12px 0 0; font-size: 14.8px; line-height: 1.65; color: #4C5470">Launch with real users, monitor usefulness, and refine the agent against evidence &mdash; then roll the proven skills wider.</p>
+        </article>
+      </div>
+      <div style="margin-top: 24px; background: #FFFFFF; border: 1px solid #CBD5E6; border-radius: 8px; padding: 26px 28px">
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B4360">The result is a business-controlled experience, with us accountable for the implementation &mdash; and <a href="Services.html#ai" style="color: #1A47B8">AI governance</a> wrapped around it from day one, not retrofitted when someone asks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PATH -->
+  <section style="background: #0E1730; color: #FFFFFF; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 24ch">Start focused. Prove value. Then raise the bar.</h2>
+      <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #D7DCEA; max-width: 72ch">A practical path to intelligent reporting, without committing to a platform rebuild you don't need.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: stretch; margin-top: 44px">
+        <div style="flex: 1 1 220px; min-width: 0; background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">01 UNDERSTAND</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #BCC5DA">Agree the priority decisions, the users and the existing reporting capability.</p>
+          <p style="margin: 14px 0 0; font-size: 13px; font-weight: 600; color: #8FB2F8">&rarr; Selected use case</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 220px; min-width: 0; background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">02 STRENGTHEN</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #BCC5DA">Improve only the data, models and reports that the use case actually needs.</p>
+          <p style="margin: 14px 0 0; font-size: 13px; font-weight: 600; color: #8FB2F8">&rarr; Trusted inputs</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 220px; min-width: 0; background: #0E2A3A; border: 1px solid #2FC4D8; border-radius: 6px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">03 BUILD + PILOT</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #BCC5DA">Deliver the first agent, validate the answers and watch real user adoption.</p>
+          <p style="margin: 14px 0 0; font-size: 13px; font-weight: 600; color: #8FB2F8">&rarr; Working evidence</p>
+        </div>
+        <div style="flex: 0 0 auto; align-self: center" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M6 4 L14 11 L6 18" stroke="#5FD4E4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div style="flex: 1 1 220px; min-width: 0; background: #16213E; border: 1px solid #2A3A63; border-radius: 6px; padding: 24px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #5FD4E4">04 EXPAND</p>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #BCC5DA">Roll out the proven skills and the reporting improvements that came with them.</p>
+          <p style="margin: 14px 0 0; font-size: 13px; font-weight: 600; color: #8FB2F8">&rarr; Scaled value</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px; background: #16213E; border: 1px solid #3A4A75; border-radius: 8px; padding: 24px 28px">
+        <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #5FD4E4">MEASURE WHAT MATTERS</p>
+        <p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #FFFFFF">Answer quality &middot; time to insight &middot; adoption &middot; reporting reuse &middot; operational cost</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD + CTA -->
+  <section style="background: #FFFFFF; padding: 88px 32px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 11.5px; letter-spacing: 0.14em; color: #1D4ED8">RELEVANT TRACK RECORD</p>
+      <h2 style="margin: 18px 0 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(28px, 3.3vw, 44px); line-height: 1.07; letter-spacing: -0.03em; max-width: 28ch">Data engineering, governance, controlled change and AI foundations.</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 16px; margin-top: 44px">
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">TRUST</p>
+          <h3 style="margin: 10px 0 0; font-size: 18px; line-height: 1.3">MetLife</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">SQL-based data quality, load auditing and documentation across every layer.</p>
+        </article>
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">CHANGE</p>
+          <h3 style="margin: 10px 0 0; font-size: 18px; line-height: 1.3">Coal LSL</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Database conversion, validation, reconciliation and migration assurance.</p>
+        </article>
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">GOVERN + AI</p>
+          <h3 style="margin: 10px 0 0; font-size: 18px; line-height: 1.3">The Smith Family</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">Governance automation, BI audit reporting and enterprise AI search over Zendesk and SharePoint.</p>
+        </article>
+        <article style="background: #F6F8FC; border: 1px solid #E2E8F3; border-radius: 8px; padding: 26px 22px">
+          <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; color: #8E99B6">OUR IP</p>
+          <h3 style="margin: 10px 0 0; font-size: 18px; line-height: 1.3">Noviq / Noviq Shift</h3>
+          <p style="margin: 10px 0 0; font-size: 14.5px; line-height: 1.6; color: #4C5470">AI-assisted onboarding and migration accelerators behind the pipeline work. <a href="Noviq.html" style="color: #1A47B8">See Noviq</a></p>
+        </article>
+      </div>
+
+      <div style="margin-top: 44px; background: #0E1730; border-radius: 8px; padding: 44px 40px; background-image: radial-gradient(#223055 1.1px, transparent 1.1px); background-size: 30px 30px">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 38px); line-height: 1.08; letter-spacing: -0.03em; color: #FFFFFF; max-width: 24ch">Pick one question your business keeps asking.</h2>
+        <p style="margin: 18px 0 0; font-size: 17px; line-height: 1.65; color: #D7DCEA; max-width: 68ch">We will tell you whether it is a retrieval problem, a metadata problem or a metrics problem &mdash; and what the agent on top of it would cost to run.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px">
+          <a href="About.html#contact" style="display: inline-flex; align-items: center; gap: 9px; min-height: 52px; padding: 0 26px; background: #1D4ED8; color: #FFFFFF; font-size: 15.5px; font-weight: 600; text-decoration: none; border-radius: 999px">Book a 30-minute discovery call
+            <svg width="15" height="15" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 L11 3 M5 3 h6 v6" stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a href="Offers.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border: 1px solid #3A4A75; color: #FFFFFF; font-size: 15.5px; font-weight: 600; text-decoration: none; border-radius: 999px">See the fixed-scope offers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer style="background: #0A1125; color: #BCC5DA; padding: 60px 32px 34px">
+    <div style="max-width: 1280px; margin: 0 auto">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 36px">
+        <div>
+          <p style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px; color: #FFFFFF">The Data Guyz</p>
+          <p style="margin: 8px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #5FD4E4">YOUR DATA EXPERTS</p>
+          <p style="margin: 18px 0 0; font-size: 15px; line-height: 1.6; color: #FFFFFF; font-weight: 600">Your ecosystem. Your IP. Our engineering.</p>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.65">Data advisory, cloud strategy, AI adoption and analytics &mdash; engineered inside the platforms you already own.</p>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">CAPABILITIES</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="#advisory" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Data Advisory</a></li>
+            <li><a href="#cloud" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Cloud Strategy</a></li>
+            <li><a href="#ai" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">AI Adoption</a></li>
+            <li><a href="#insights" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Insights &amp; Analytics</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">OUR IP</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Noviq</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Noviq Shift</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">DQ &amp; Load Audit</a></li>
+            <li><a href="Noviq.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">ADDF</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">EXPLORE</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="Offers.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Offer catalogue</a></li>
+            <li><a href="UseCases.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Use-case library</a></li>
+            <li><a href="Industries.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Industries</a></li>
+            <li><a href="Accountants.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">AI for accountants</a></li>
+            <li><a href="CaseStudies.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Case studies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin: 0; font-size: 12px; font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.14em; color: #8E99B6">COMPANY</h2>
+          <ul style="margin: 16px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+            <li><a href="About.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">About us</a></li>
+            <li><a href="About.html#contact" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Contact</a></li>
+            <li><a href="Offers.html" style="color: #BCC5DA; font-size: 14.5px; text-decoration: none">Partner with us</a></li>
+          </ul>
+          <p style="margin: 18px 0 0; font-size: 14px; line-height: 1.7; color: #8E99B6">Google Cloud Partner<br>Snowflake Registered Partner<br>Anthropic Claude Partner Network</p>
+        </div>
+      </div>
+      <div style="height: 6px; margin: 42px 0 22px; background-image: repeating-linear-gradient(to right, #22304F 0, #22304F 1px, transparent 1px, transparent 14px)" aria-hidden="true"></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 13px; color: #8E99B6">
+        <span>&copy; 2026 The Data Guyz</span>
+        <span>THE PARTY GUYS PTY LTD trading as The Data Guyz &middot; ABN 37 636 045 531</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
